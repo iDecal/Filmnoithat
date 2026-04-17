@@ -1,0 +1,70 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const projects = [
+  {
+    title: "Văn phòng công ty công nghệ",
+    type: "Văn phòng",
+    material: "Film vân vải + kính mờ"
+  },
+  {
+    title: "Nhà phố hiện đại",
+    type: "Nhà ở",
+    material: "Film vân gỗ walnut"
+  },
+  {
+    title: "Showroom nội thất",
+    type: "Showroom",
+    material: "Film kim loại + matte"
+  }
+];
+---
+
+<BaseLayout>
+
+<!-- 🌿 HERO -->
+<section class="py-24 px-6 text-center bg-gradient-to-b from-base-50 to-base-100">
+
+  <h1 class="text-4xl md:text-5xl font-light">
+    Công trình thực tế
+  </h1>
+
+  <p class="mt-6 text-base-600 max-w-2xl mx-auto">
+    Những dự án dán film nội thất đã hoàn thiện trên thực tế: văn phòng, nhà phố, showroom và khách sạn.
+  </p>
+
+</section>
+
+<!-- 🏛 GRID -->
+<section class="py-24 px-6">
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+
+    {projects.map(p => (
+      <a href="/du-an/demo"
+         class="bg-white border border-base-200 rounded-2xl overflow-hidden hover:shadow-lg transition">
+
+        <div class="h-40 bg-gradient-to-br from-base-200 to-base-300"></div>
+
+        <div class="p-6">
+
+          <h3 class="font-medium">{p.title}</h3>
+
+          <p class="text-sm text-base-600 mt-2">
+            {p.type}
+          </p>
+
+          <p class="text-xs text-primary-500 mt-3">
+            {p.material}
+          </p>
+
+        </div>
+
+      </a>
+    ))}
+
+  </div>
+
+</section>
+
+</BaseLayout>
