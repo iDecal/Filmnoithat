@@ -5,17 +5,20 @@ const projects = [
   {
     title: "Văn phòng công ty công nghệ",
     type: "Văn phòng",
-    material: "Film vân vải + kính mờ"
+    material: "Film vân vải + kính mờ",
+    image: "/images/projects/van-phong-01.jpg"
   },
   {
     title: "Nhà phố hiện đại",
     type: "Nhà ở",
-    material: "Film vân gỗ walnut"
+    material: "Film vân gỗ walnut",
+    image: "/images/projects/nha-pho-01.jpg"
   },
   {
     title: "Showroom nội thất",
     type: "Showroom",
-    material: "Film kim loại + matte"
+    material: "Film kim loại + matte",
+    image: "/images/projects/showroom-01.jpg"
   }
 ];
 ---
@@ -42,19 +45,30 @@ const projects = [
 
     {projects.map(p => (
       <a href="/du-an/demo"
-         class="bg-white border border-base-200 rounded-2xl overflow-hidden hover:shadow-lg transition">
+         class="bg-white border border-base-200 rounded-2xl overflow-hidden hover:shadow-xl transition duration-300">
 
-        <div class="h-40 bg-gradient-to-br from-base-200 to-base-300"></div>
+        <!-- IMAGE -->
+        <div class="h-52 overflow-hidden">
+          <img
+            src={p.image}
+            alt={p.title}
+            class="w-full h-full object-cover hover:scale-110 transition duration-700"
+            loading="lazy"
+          />
+        </div>
 
+        <!-- CONTENT -->
         <div class="p-6">
 
-          <h3 class="font-medium">{p.title}</h3>
+          <h3 class="font-medium text-lg">
+            {p.title}
+          </h3>
 
           <p class="text-sm text-base-600 mt-2">
             {p.type}
           </p>
 
-          <p class="text-xs text-primary-500 mt-3">
+          <p class="text-xs text-orange-600 mt-3">
             {p.material}
           </p>
 
