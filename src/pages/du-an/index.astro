@@ -1,0 +1,120 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const projects = [
+  {
+    title: "Văn phòng tech",
+    material: "van-vai",
+    tag: "Vân vải"
+  },
+  {
+    title: "Tủ bếp hiện đại",
+    material: "van-go",
+    tag: "Vân gỗ"
+  },
+  {
+    title: "Showroom nội thất",
+    material: "kim-loai",
+    tag: "Kim loại"
+  },
+  {
+    title: "Nhà phố cao cấp",
+    material: "van-go",
+    tag: "Vân gỗ"
+  },
+  {
+    title: "Phòng họp công ty",
+    material: "van-vai",
+    tag: "Vân vải"
+  }
+];
+
+const filters = [
+  { label: "Tất cả", value: "all" },
+  { label: "Vân gỗ", value: "van-go" },
+  { label: "Vân vải", value: "van-vai" },
+  { label: "Kim loại", value: "kim-loai" },
+  { label: "Giả đá", value: "gia-da" }
+];
+---
+
+<BaseLayout>
+
+<!-- 🌿 HERO -->
+<section class="py-24 px-6 text-center bg-gradient-to-b from-base-50 to-base-100">
+  <h1 class="text-4xl font-light">Dự án thực tế</h1>
+  <p class="mt-4 text-base-600 max-w-2xl mx-auto">
+    Bộ sưu tập công trình dán film nội thất theo từng loại vật liệu.
+  </p>
+</section>
+
+<!-- 🧩 FILTER -->
+<section class="px-6 pb-10">
+
+  <div class="max-w-6xl mx-auto flex flex-wrap gap-3 justify-center">
+
+    {filters.map(f => (
+      <button
+        class="filter-btn px-4 py-2 rounded-full border border-base-300 text-sm hover:bg-base-900 hover:text-white transition"
+        data-filter={f.value}
+      >
+        {f.label}
+      </button>
+    ))}
+
+  </div>
+
+</section>
+
+<!-- 🏛 GALLERY -->
+<section class="px-6 pb-24">
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+
+    {projects.map(p => (
+      <div
+        class="project-card bg-white border border-base-200 rounded-2xl overflow-hidden hover:shadow-lg transition"
+        data-type={p.material}
+      >
+
+        <div class="h-40 bg-gradient-to-br from-base-200 to-base-300"></div>
+
+        <div class="p-6">
+          <h3 class="font-medium">{p.title}</h3>
+          <p class="text-sm text-base-600 mt-2">{p.tag}</p>
+        </div>
+
+      </div>
+    ))}
+
+  </div>
+
+</section>
+
+<!-- 🌿 FILTER SCRIPT -->
+<script>
+  const buttons = document.querySelectorAll(".filter-btn");
+  const cards = document.querySelectorAll(".project-card");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter;
+
+      cards.forEach(card => {
+        const type = card.dataset.type;
+
+        if (filter === "all" || type === filter) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      // active state
+      buttons.forEach(b => b.classList.remove("bg-base-900", "text-white"));
+      btn.classList.add("bg-base-900", "text-white");
+    });
+  });
+</script>
+
+</BaseLayout>
