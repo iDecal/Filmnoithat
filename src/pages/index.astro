@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+// Dữ liệu dịch vụ
 const services = [
   { title: "Dán film thang máy", desc: "Biến kim loại lạnh thành vật liệu nội thất sang trọng, xử lý hoàn hảo mọi góc cạnh." },
   { title: "Dán film tủ bếp & tủ áo", desc: "Thay đổi màu sắc không gian bếp mà không cần thay mới, chống nước, chống dầu mỡ." },
@@ -8,172 +9,132 @@ const services = [
   { title: "Dán nội thất Showroom", desc: "Cải tạo quầy lễ tân, kệ trưng bày cho các thương hiệu như Toyota, The Hive." }
 ];
 
+// Dữ liệu dự án với ảnh thực tế
 const projects = [
-  { title: "Thang máy khách sạn", tag: "Premium", style: "Vân gỗ sồi sáng tự nhiên" },
-  { title: "Văn phòng Tech", tag: "Infeel", style: "Kính mờ tối giản & hiện đại" },
-  { title: "Nhà phố cao cấp", tag: "Toda", style: "Gỗ Walnut trầm sang trọng" }
-];
-
-const blogPosts = [
-  { title: "5 Lý do nên chọn Film dán thay vì sơn bệt", date: "15/04/2026", link: "#" },
-  { title: "Hướng dẫn tự dán film tại nhà đẹp như thợ", date: "10/04/2026", link: "#" }
+  { title: "Thang máy khách sạn", tag: "Premium", style: "Vân gỗ sồi sáng", img: "/images/project-thang-may.webp" },
+  { title: "Văn phòng Tech", tag: "Infeel", style: "Kính mờ tối giản", img: "/images/project-van-phong.webp" },
+  { title: "Nhà phố cao cấp", tag: "Toda", style: "Gỗ Walnut trầm", img: "/images/project-nha-pho.webp" }
 ];
 ---
 
-<BaseLayout title="Film Dán Nội Thất - Dịch Vụ Thi Công & Vật Tư Cao Cấp">
+<BaseLayout title="Film Dán Nội Thất - Vật Liệu & Thi Công Chuyên Nghiệp">
 
-<section class="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-b from-base-50 to-base-100"></div>
+<section class="min-h-screen flex items-center justify-center px-6 relative overflow-hidden bg-base-50">
+  <div class="absolute inset-0 opacity-10">
+    <img src="/images/hero-pattern.webp" alt="Vân film nội thất" class="w-full h-full object-cover" />
+  </div>
   <div class="relative max-w-4xl text-center">
     <p class="text-xs tracking-[0.35em] text-base-500 uppercase">Interior Film Studio</p>
-    <h1 class="mt-6 text-5xl md:text-6xl font-light leading-tight text-base-900">
-      Film Dán Nội Thất Cao Cấp<br />
-      <span class="font-medium text-primary-500">Giải pháp cải tạo toàn diện</span>
+    <h1 class="mt-6 text-5xl md:text-7xl font-light leading-tight text-base-900">
+      Vật liệu mới cho<br />
+      <span class="font-medium text-primary-500 italic text-4xl md:text-6xl text-right block md:inline">không gian cũ</span>
     </h1>
-    <p class="mt-6 text-base-600 max-w-xl mx-auto italic">
-      Thay diện mạo mới cho tủ bếp, bàn ghế, văn phòng tại TP.HCM & Bình Dương chỉ trong 24h — giữ nguyên cấu trúc, thay đổi cảm xúc không gian.
-    </p>
     <div class="mt-10 flex gap-4 justify-center">
-      <button class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-full transition shadow-lg shadow-primary-500/20">
-        Xem mẫu Film mới nhất
-      </button>
-      <button class="border border-base-300 px-6 py-3 rounded-full hover:bg-base-100 transition">
-        Báo giá thi công
-      </button>
+      <button class="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-full transition shadow-lg">Xem dự án</button>
+      <button class="border border-base-300 px-8 py-4 rounded-full hover:bg-white transition">Tư vấn vật liệu</button>
     </div>
   </div>
 </section>
 
-<section class="py-24 px-6 bg-base-100">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-14">
-      <h2 class="text-3xl font-light">Dịch vụ thi công chuyên nghiệp</h2>
-      <p class="text-base-500 mt-3 max-w-2xl mx-auto">Chúng tôi sở hữu đội ngũ kỹ thuật viên giàu kinh nghiệm, chuyên xử lý các bề mặt khó như góc cạnh tủ bếp, cửa thang máy.</p>
+<section class="py-10 px-6 max-w-7xl mx-auto">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="space-y-4">
+      <img src="/images/detail-1.webp" alt="Cận cảnh vân gỗ" class="rounded-2xl w-full h-64 object-cover shadow-sm hover:scale-[1.02] transition" />
+      <img src="/images/detail-2.webp" alt="Thi công dán tủ" class="rounded-2xl w-full h-40 object-cover shadow-sm hover:scale-[1.02] transition" />
     </div>
-
-    <div class="grid md:grid-cols-2 gap-6">
-      {services.map(s => (
-        <div class="group bg-white border border-base-200 rounded-2xl p-8 hover:shadow-xl transition">
-          <h3 class="text-lg font-medium group-hover:text-primary-500 transition">{s.title}</h3>
-          <p class="text-base-600 mt-2 text-sm leading-relaxed">{s.desc}</p>
-          <div class="mt-6 w-10 h-[2px] bg-primary-500/30 group-hover:w-20 transition-all"></div>
-        </div>
-      ))}
+    <div class="pt-8 space-y-4">
+      <img src="/images/detail-3.webp" alt="Bề mặt vân đá" class="rounded-2xl w-full h-40 object-cover shadow-sm hover:scale-[1.02] transition" />
+      <img src="/images/detail-4.webp" alt="Showroom Toyota" class="rounded-2xl w-full h-64 object-cover shadow-sm hover:scale-[1.02] transition" />
+    </div>
+    <div class="space-y-4">
+      <img src="/images/detail-5.webp" alt="Cửa thang máy" class="rounded-2xl w-full h-64 object-cover shadow-sm hover:scale-[1.02] transition" />
+      <img src="/images/detail-6.webp" alt="Văn phòng The Hive" class="rounded-2xl w-full h-40 object-cover shadow-sm hover:scale-[1.02] transition" />
+    </div>
+    <div class="pt-8 space-y-4">
+      <img src="/images/detail-7.webp" alt="Mẫu film màu đơn sắc" class="rounded-2xl w-full h-40 object-cover shadow-sm hover:scale-[1.02] transition" />
+      <img src="/images/detail-8.webp" alt="Kỹ thuật dán góc cạnh" class="rounded-2xl w-full h-64 object-cover shadow-sm hover:scale-[1.02] transition" />
     </div>
   </div>
 </section>
 
-<section class="py-24 px-6">
+<section class="py-24 px-6 bg-white">
   <div class="max-w-6xl mx-auto">
-    <div class="flex flex-col md:flex-row justify-between items-end mb-14">
+    <div class="grid md:grid-cols-2 gap-x-12 gap-y-12 items-center">
       <div>
-        <h2 class="text-3xl font-light italic">Tổng kho vật tư film nội thất</h2>
-        <p class="text-base-500 mt-3">Đa dạng mẫu mã, sẵn sàng giao ngay tại kho TP.HCM</p>
-      </div>
-      <a href="#" class="text-primary-500 text-sm font-medium mt-4 md:mt-0 underline underline-offset-8">Xem tất cả sản phẩm</a>
-    </div>
-
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-      {[
-        { name: "Film Vân Gỗ", items: "Sồi, Óc Chó, Gỗ Khô" },
-        { name: "Film Vân Đá", items: "Marble, Granite, Ceramic" },
-        { name: "Film Màu Trơn", items: "Matte & Glossy" },
-        { name: "Film Vân Vải", items: "Canvas, Leather, Linen" }
-      ].map(cat => (
-        <div class="group cursor-pointer">
-          <div class="aspect-[3/4] bg-base-100 rounded-2xl mb-4 transition group-hover:bg-base-200 flex items-center justify-center text-base-300">
-            Preview
-          </div>
-          <h4 class="font-medium text-base-900">{cat.name}</h4>
-          <p class="text-xs text-base-500 mt-1">{cat.items}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-<section class="py-24 px-6 bg-slate-50">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20">
-    <div>
-      <h2 class="text-3xl font-light mb-10">Tại sao nên chọn Film dán?</h2>
-      <ul class="space-y-6">
-        <li class="flex gap-4">
-          <span class="text-primary-500 font-bold">01.</span>
-          <p class="text-base-600"><strong class="text-base-900">Tiết kiệm 70% chi phí:</strong> So với việc thay mới nội thất gỗ hoặc đá tự nhiên.</p>
-        </li>
-        <li class="flex gap-4">
-          <span class="text-primary-500 font-bold">02.</span>
-          <p class="text-base-600"><strong class="text-base-900">Thi công sạch sẽ:</strong> Không mùi sơn, không bụi bặm, có thể ở ngay sau khi làm.</p>
-        </li>
-        <li class="flex gap-4">
-          <span class="text-primary-500 font-bold">03.</span>
-          <p class="text-base-600"><strong class="text-base-900">Độ bền vượt trội:</strong> Chống cháy lan, chống trầy xước và kháng ẩm mốc tuyệt đối.</p>
-        </li>
-      </ul>
-    </div>
-    <div class="border-l border-base-200 pl-10">
-      <h2 class="text-3xl font-light mb-10">Quy trình chuyên nghiệp</h2>
-      <div class="space-y-8">
-        {["Tư vấn & Khảo sát đo đạc", "Báo giá minh bạch vật tư & nhân công", "Thi công tỉ mỉ các mép cạnh", "Bảo hành bong tróc 2-5 năm"].map((step, i) => (
-          <div class="relative pl-8 border-l border-primary-500/20">
-            <div class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-primary-500"></div>
-            <p class="text-sm font-medium text-base-900">Bước {i+1}: {step}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="py-28 px-6">
-  <div class="max-w-6xl mx-auto text-center mb-14">
-    <h2 class="text-3xl font-light">Dự án tiêu biểu</h2>
-    <p class="text-base-500 mt-3 italic">Cảm nhận sự thay đổi thực tế từ công trình đã hoàn thiện</p>
-    <div class="grid md:grid-cols-3 gap-6 mt-14">
-      {projects.map(p => (
-        <div class="bg-white border border-base-200 rounded-2xl overflow-hidden hover:shadow-xl transition group text-left">
-          <div class="h-56 bg-base-200 flex items-center justify-center text-base-300">Portfolio Image</div>
-          <div class="p-6">
-            <div class="flex items-center justify-between">
-              <h3 class="font-medium">{p.title}</h3>
-              <span class="text-[10px] tracking-widest px-2 py-1 rounded-full bg-base-100 uppercase">{p.tag}</span>
+        <h2 class="text-3xl font-light mb-8 italic text-primary-500">Giải pháp từ vật liệu bề mặt</h2>
+        <div class="grid gap-6">
+          {services.map(s => (
+            <div class="group border-l-2 border-base-100 pl-6 hover:border-primary-500 transition">
+              <h3 class="text-lg font-medium">{s.title}</h3>
+              <p class="text-base-500 mt-1 text-sm">{s.desc}</p>
             </div>
-            <p class="text-sm text-base-600 mt-3">{p.style}</p>
+          ))}
+        </div>
+      </div>
+      <div class="relative">
+        <img src="/images/service-main.webp" alt="Thi công dán film chuyên nghiệp" class="rounded-3xl shadow-2xl" />
+        <div class="absolute -bottom-6 -left-6 bg-primary-500 text-white p-6 rounded-2xl hidden md:block">
+          <p class="text-2xl font-bold">10+</p>
+          <p class="text-xs uppercase tracking-widest">Năm kinh nghiệm</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-28 px-6 bg-base-50">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-20">
+      <h2 class="text-4xl font-light">Dự án thực tế</h2>
+      <p class="text-base-500 mt-4">Cảm nhận sự thay đổi từ những chi tiết nhỏ nhất</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {projects.map(p => (
+        <div class="group cursor-pointer">
+          <div class="overflow-hidden rounded-3xl mb-6 aspect-[4/5] relative">
+            <img src={p.img} alt={p.title} class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+              <span class="bg-white text-black px-6 py-2 rounded-full text-sm font-medium">Chi tiết dự án</span>
+            </div>
           </div>
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-light">{p.title}</h3>
+            <span class="text-[10px] tracking-widest px-3 py-1 border border-base-300 rounded-full uppercase">{p.tag}</span>
+          </div>
+          <p class="text-sm text-base-400 mt-2">{p.style}</p>
         </div>
       ))}
     </div>
   </div>
 </section>
 
-<section class="py-24 px-6 border-t border-base-200">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-2xl font-light mb-10">Kiến thức & Xu hướng</h2>
-    <div class="grid md:grid-cols-2 gap-10">
-      {blogPosts.map(post => (
-        <a href={post.link} class="group flex flex-col justify-between p-6 border border-transparent hover:border-base-200 rounded-2xl transition">
-          <h3 class="text-xl font-medium group-hover:text-primary-500 transition">{post.title}</h3>
-          <div class="mt-6 flex items-center justify-between text-xs text-base-400">
-            <span>{post.date}</span>
-            <span class="font-bold">ĐỌC THÊM</span>
-          </div>
-        </a>
-      ))}
+<section class="py-24 px-6 max-w-5xl mx-auto text-center">
+  <h2 class="text-3xl font-light mb-12 italic">Sự lột xác của nội thất cũ</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="relative rounded-2xl overflow-hidden">
+        <img src="/images/before.webp" alt="Nội thất cũ" class="w-full h-80 object-cover" />
+        <span class="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 text-xs rounded">Trước</span>
+    </div>
+    <div class="relative rounded-2xl overflow-hidden">
+        <img src="/images/after.webp" alt="Nội thất mới dán film" class="w-full h-80 object-cover" />
+        <span class="absolute top-4 left-4 bg-primary-500 text-white px-3 py-1 text-xs rounded">Sau khi dán film</span>
     </div>
   </div>
 </section>
 
 <section class="py-32 bg-base-900 text-white text-center px-6 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-20">
+    <img src="/images/cta-bg.webp" alt="Background vật liệu" class="w-full h-full object-cover" />
+  </div>
   <div class="relative z-10">
-    <h2 class="text-4xl font-light">Biến không gian của bạn thành trải nghiệm mới</h2>
-    <p class="text-white/60 mt-6 max-w-xl mx-auto leading-relaxed text-sm">
-      Tư vấn giải pháp film nội thất phù hợp cho từng loại công trình tại TP.HCM & Bình Dương. Nhận ngay bộ mẫu film thực tế tại nhà.
+    <h2 class="text-4xl font-light">Bắt đầu không gian mới ngay hôm nay</h2>
+    <p class="text-white/60 mt-6 max-w-xl mx-auto text-sm leading-relaxed">
+      Chúng tôi cung cấp vật liệu và giải pháp thi công dán film nội thất chuyên nghiệp cho mọi công trình tại TP.HCM & Bình Dương.
     </p>
-    <div class="mt-10 flex gap-4 justify-center">
-      <button class="bg-white text-black px-8 py-3 rounded-full hover:bg-primary-500 hover:text-white transition font-medium">
-        Chat Zalo ngay
-      </button>
-    </div>
+    <button class="mt-10 bg-primary-500 text-white px-10 py-4 rounded-full hover:bg-white hover:text-black transition-all font-bold">
+      Liên hệ báo giá
+    </button>
   </div>
 </section>
 
