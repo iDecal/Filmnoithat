@@ -1,34 +1,35 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-// 📌 Demo data dự án (sau này thay bằng CMS)
-const projects = [
+// ✅ PHẢI nằm trên cùng file
+const posts = [
   {
-    slug: "van-phong-hcm",
-    title: "Công trình văn phòng HCM",
-    content: "Thi công film nội thất cho văn phòng hiện đại tại TP.HCM..."
+    slug: "cach-chon-film-noi-that",
+    title: "Cách chọn film nội thất phù hợp",
+    content: "Nội dung bài viết về cách chọn film nội thất..."
   },
   {
-    slug: "showroom-noi-that",
-    title: "Showroom nội thất cao cấp",
-    content: "Không gian showroom được nâng cấp bằng film vân gỗ & kim loại..."
+    slug: "bao-gia-dan-film",
+    title: "Báo giá dán film nội thất",
+    content: "Chi phí thi công film nội thất..."
   },
   {
-    slug: "nha-pho-hien-dai",
-    title: "Nhà phố hiện đại",
-    content: "Giải pháp film nội thất giúp không gian sang trọng hơn..."
+    slug: "film-van-go-la-gi",
+    title: "Film vân gỗ là gì?",
+    content: "Film vân gỗ là vật liệu trang trí..."
   }
 ];
 
-// 🔥 BẮT BUỘC: khai báo slug cho build static
+// 🔥 BẮT BUỘC: getStaticPaths phải thấy posts
 export async function getStaticPaths() {
-  return projects.map((item) => ({
-    params: { slug: item.slug },
-    props: { project: item },
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
   }));
 }
 
-const { project } = Astro.props;
+// nhận data
+const { post } = Astro.props;
 ---
 
 <BaseLayout>
@@ -36,11 +37,11 @@ const { project } = Astro.props;
 <section class="py-24 px-6 max-w-3xl mx-auto">
 
   <h1 class="text-4xl font-light">
-    {project.title}
+    {post.title}
   </h1>
 
   <article class="mt-8 text-base-700 leading-relaxed">
-    {project.content}
+    {post.content}
   </article>
 
 </section>
