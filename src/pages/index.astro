@@ -79,7 +79,7 @@ const blogPosts = [
         <h2 class="text-4xl font-light italic text-base-900 mb-4">Tổng kho vật liệu film nội thất</h2>
         <p class="text-base-500 text-lg">Hàng trăm mẫu film có sẵn, từ vân gỗ tự nhiên đến vân đá sang trọng. Sẵn sàng giao ngay hoặc thi công trực tiếp.</p>
       </div>
-      <a href="/vay-lieu" class="text-primary-500 font-bold border-b-2 border-primary-500 pb-1 hover:text-primary-600 transition">
+      <a href="/vat-lieu" class="text-primary-500 font-bold border-b-2 border-primary-500 pb-1 hover:text-primary-600 transition">
         Xem toàn bộ bộ sưu tập →
       </a>
     </div>
@@ -187,67 +187,59 @@ const blogPosts = [
   </div>
 </section>
 
+---
+// Cập nhật dữ liệu Blog với phần mô tả (excerpt)
+const blogPosts = [
+  { 
+    title: "5 Lý do nên chọn Film dán thay vì sơn bệt", 
+    excerpt: "Khám phá sự khác biệt về độ bền, chi phí và thời gian thi công giữa công nghệ Film kiến trúc Hàn Quốc so với các phương pháp sơn truyền thống.",
+    date: "15/04/2026", 
+    image: "/images/blog-1.webp",
+    link: "/blog/ly-do-chon-film-dan"
+  },
+  { 
+    title: "Hướng dẫn tự dán film tại nhà đẹp như thợ", 
+    excerpt: "Tổng hợp các kỹ thuật xử lý góc cạnh, cách dùng máy khò nhiệt và dao cắt chuyên dụng để bạn có thể tự làm mới đồ gỗ trong nhà.",
+    date: "10/04/2026", 
+    image: "/images/blog-2.webp",
+    link: "/blog/huong-dan-tu-dan-film"
+  }
+];
+---
+
 <section class="py-24 px-6 bg-white border-t border-base-200">
   <div class="max-w-7xl mx-auto">
     <div class="flex justify-between items-end mb-16">
       <h2 class="text-3xl font-light italic">Kiến thức bề mặt</h2>
       <a href="/blog" class="text-sm font-bold text-primary-500 uppercase tracking-widest">Xem tất cả</a>
     </div>
+
     <div class="grid md:grid-cols-2 gap-12">
       {blogPosts.map(post => (
-        <a href="#" class="group block">
+        <a href={post.link} class="group block">
           <div class="aspect-video rounded-3xl overflow-hidden mb-6">
             <img src={post.image} alt={post.title} class="w-full h-full object-cover group-hover:rotate-1 group-hover:scale-105 transition duration-500" />
           </div>
+          
           <div class="flex gap-4 items-center mb-4">
              <span class="text-[10px] font-bold bg-primary-500 text-white px-3 py-1 rounded-full uppercase tracking-widest">Cẩm nang</span>
              <span class="text-xs text-base-400 font-medium">{post.date}</span>
           </div>
-          <h3 class="text-2xl font-medium leading-snug group-hover:text-primary-500 transition">{post.title}</h3>
-          <p class="mt-4 text-primary-500 font-bold flex items-center gap-2"> ĐỌC THÊM <span>→</span></p>
+
+          <h3 class="text-2xl font-medium leading-snug group-hover:text-primary-500 transition">
+            {post.title}
+          </h3>
+
+          <p class="mt-4 text-base-500 text-sm leading-relaxed line-clamp-2">
+            {post.excerpt}
+          </p>
+
+          <p class="mt-6 text-primary-500 font-bold text-xs flex items-center gap-2 tracking-widest"> 
+            ĐỌC THÊM <span class="group-hover:translate-x-2 transition duration-300">→</span>
+          </p>
         </a>
       ))}
     </div>
-  </div>
-</section>
-
-<section class="py-20 px-6 bg-base-50">
-  <div class="max-w-5xl mx-auto">
-    <div class="grid md:grid-cols-3 gap-12 text-sm leading-relaxed text-base-600">
-      <div>
-        <h4 class="font-bold text-base-900 mb-4 uppercase tracking-wider text-xs">Vật liệu Film Kiến trúc</h4>
-        <p>
-          Film dán nội thất (Interior Film) là dòng vật liệu cao cấp có cấu tạo đa lớp, mô phỏng hoàn hảo các bề mặt tự nhiên như gỗ, đá, vải hay kim loại. Với độ dày trung bình từ 0.2mm - 0.4mm, film không chỉ làm đẹp mà còn có tác dụng bảo vệ cốt gỗ, chống trầy xước và kháng khuẩn vượt trội.
-        </p>
-      </div>
-      <div>
-        <h4 class="font-bold text-base-900 mb-4 uppercase tracking-wider text-xs">Giải pháp cải tạo bền vững</h4>
-        <p>
-          Thay vì tốn kém chi phí thay mới toàn bộ hệ tủ bếp hay cửa thang máy, dán film giúp tiết kiệm tới 70% ngân sách và giảm thiểu rác thải xây dựng. Quy trình thi công sạch sẽ, không bụi bặm, cho phép gia chủ tiếp tục sinh hoạt ngay trong quá trình thực hiện dự án.
-        </p>
-      </div>
-      <div>
-        <h4 class="font-bold text-base-900 mb-4 uppercase tracking-wider text-xs">Thi công chuyên nghiệp</h4>
-        <p>
-          Chúng tôi tập trung phục vụ khách hàng tại các khu vực trọng điểm như <strong>Thủ Đức, Quận 7, Quận 12, Bình Thạnh</strong> và các khu công nghiệp tại <strong>Bình Dương</strong>. Đội ngũ kỹ thuật viên am hiểu đặc tính các dòng film Toda, Infeel, đảm bảo độ bền bong tróc lên đến 10 năm.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="py-32 bg-base-900 text-white text-center px-6 relative overflow-hidden">
-  <div class="absolute inset-0 opacity-10 grayscale">
-    <img src="/images/cta-pattern.webp" alt="Vật liệu film" class="w-full h-full object-cover" />
-  </div>
-  <div class="relative z-10">
-    <h2 class="text-5xl font-light mb-8 italic">Bạn đã sẵn sàng đổi mới?</h2>
-    <p class="text-white/60 mb-12 max-w-xl mx-auto text-lg leading-relaxed">
-      Liên hệ để nhận tư vấn giải pháp vật liệu phù hợp cho công trình của bạn. Chúng tôi mang mẫu đến tận nơi khảo sát miễn phí.
-    </p>
-    <a href="https://zalo.me/your-number" class="bg-white text-black px-12 py-5 rounded-full hover:bg-primary-500 hover:text-white transition-all font-bold text-lg inline-block shadow-2xl">
-      Chat Zalo Báo Giá
-    </a>
   </div>
 </section>
 
